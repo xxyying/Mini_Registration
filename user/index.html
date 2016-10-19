@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Registration</title>
+	<h1>User Demo</h1>
+</head>
+<body>
+
+	<form action="/adduser" method="POST">
+		<input type="text" id="username" placeholder="name" name="name">
+		<input type="text" id="password" placeholder="email" name="email">
+		<button type="submit">Add</button>
+<!-- 		<div id="result">result</div>
+ -->
+	</form>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+    	var username = $("#username").val();
+    	var password = $("#password").val();
+    	console.log("This is username: " + username);
+    	console.log("This is password: " + password);
+
+
+        $.ajax({ type: 'POST', url: '/adduser',
+	        data: { username: username, password: password} ,
+
+	        contentType: 'application/json; charset=utf-8',
+	        success: function (response) {
+	           // alert(response.toString());
+	            $("#result").val();
+	        },
+	        error: function () {
+	            alert("error");
+	        }});
+    });
+});
+</script>
+</body>
+</html>
+

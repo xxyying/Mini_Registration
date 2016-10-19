@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Demo</title>
+</head>
+<body>
+
+  <ul class="adduser">
+  <% for(var i=0; i<adduser.length; i++) {%>
+    <li class="adduser">
+      <span><%= adduser[i].name %></span>
+      <span><%= adduser[i].email %></span>
+    </li>
+  <% } %>
+  </ul>
+
+  <form action="/adduser" method="POST">
+    <input type="text" placeholder="Username" name="name">
+    <input type="text" placeholder="Email" name="email">
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
